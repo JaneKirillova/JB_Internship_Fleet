@@ -1,0 +1,33 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.9.21'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "21.0.1"
+    modules = [ 'javafx.controls', 'javafx.graphics', 'javafx.fxml', 'javafx.base', 'javafx.media', 'javafx.web' ]
+}
+
+dependencies {
+    implementation("no.tornado:tornadofx:1.7.20")
+    implementation("org.fxmisc.richtext:richtextfx:0.11.2")
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(21)
+}
+application {
+    mainClassName = "org.example.ScriptRunnerApp"
+}
